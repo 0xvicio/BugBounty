@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#Don't forget to add --no-prompt in Eyewitness and add systemctl suspend at the end of the script if you want to run it overnight and automatically sleep when done :)
+
 echo "Welcome!"
 echo "Please, enter program name:"
 read program
@@ -61,7 +63,7 @@ cat allsubs_probed.txt | httpx -path /swagger-api/ -status-code -content-length
 wait
 
 echo "Running Aquatone to screenshot subdomain pages"
-cat allsubs_probed.txt | aquatone -ports xlarge -proxy 127.0.0.1:8080
+cat allsubs_probed.txt | aquatone -ports xlarge -proxy http://127.0.0.1:8080
 wait
 
 echo "Running Eyewitness to screenshot subdomain pages"
