@@ -42,6 +42,10 @@ echo "Identifying technologies"
 ~/tools/Whatweb/whatweb -i allsubs_probed.txt --proxy 127.0.0.1:8080 | tee -a technologies.txt
 wait
 
+echo "Finding Technologies through Favicons :)"
+cat allsubs_probed.txt | python ~/tools/FavFreak/favfreak.py --shodan -o favicons
+wait
+
 echo "Identifying archived paths"
 waybackurls $domain | tee -a waybackurls.txt
 wait
