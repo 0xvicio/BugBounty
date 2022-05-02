@@ -54,7 +54,7 @@ echo "Identifying interesting directories"
 gau $domain -subs -b jpg,gif,tiff,png  -t 10 -p 127.0.0.1:8080 | tee -a gau.txt
 wait
 
-echo "Using Parallel to "
+echo "Using Parallel to determine alive URLs by status/HTTP code, Size, etc."
 cat allsubs_probed.txt | parallel -j50 -q curl -w 'Status:%{http_code}\t  Size:%{size_download}\t %{url_effective}\n' -o /dev/null -sk | tee -a parallels.txt
 wait
 
