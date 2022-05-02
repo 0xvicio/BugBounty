@@ -43,7 +43,7 @@ echo "Identifying technologies"
 wait
 
 echo "Finding Technologies through Favicons :)"
-cat allsubs_probed.txt | python ~/tools/FavFreak/favfreak.py --shodan -o favicons
+cat allsubs_probed.txt | python ~/tools/FavFreak/favfreak.py -o favicons --shodan | tee -a favicons_results.txt
 wait
 
 echo "Identifying archived paths"
