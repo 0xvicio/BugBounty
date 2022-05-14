@@ -51,7 +51,7 @@ waybackurls $domain | tee -a waybackurls.txt
 wait
 
 echo "Identifying interesting directories"
-gau $domain -subs -b jpg,gif,tiff,png  -t 10 -p 127.0.0.1:8080 | tee -a gau.txt
+gau $domain --subs --blacklist jpg,gif,tiff,png --threads 10 --proxy http://127.0.0.1:8080 | tee -a gau.txt
 wait
 
 echo "Using Parallel to determine alive URLs by status/HTTP code, Size, etc."
